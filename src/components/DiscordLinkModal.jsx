@@ -1,4 +1,4 @@
-// src/components/DiscordLinkModal.jsx
+
 import React from "react";
 import "../styles/DiscordLinkModal.css";
 
@@ -6,7 +6,7 @@ export default function DiscordLinkModal({
   open,
   onClose,
   onConnect,
-  discordUser, // { username, avatarUrl? } hoặc null
+  discordUser, 
 }) {
   if (!open) return null;
 
@@ -31,7 +31,6 @@ export default function DiscordLinkModal({
           ✕
         </button>
 
-        {/* HEADER ICON + TITLE */}
         <div className='discord-modal-header'>
           <div className='discord-header-icon'>
             💬
@@ -41,9 +40,11 @@ export default function DiscordLinkModal({
           </h2>
         </div>
 
-        {/* NẾU ĐÃ LIÊN KẾT -> HIỆN BOX NHƯ ẢNH */}
         {isLinked && (
           <>
+            <p className='discord-success-text'>
+              Liên kết Discord thành công!
+            </p>
             <div className='discord-current-box'>
               <span className='discord-current-label'>
                 Discord hiện tại:
@@ -53,13 +54,10 @@ export default function DiscordLinkModal({
               </span>
             </div>
 
-            <p className='discord-success-text'>
-              Liên kết Discord thành công!
-            </p>
+            
           </>
         )}
 
-        {/* NÚT CHÍNH */}
         <button
           type='button'
           className='discord-connect-btn'

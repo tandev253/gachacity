@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/NewsPage.css"; 
 import NewsDetail from "../components/NewsDetail";
 import { getNewsItems } from "../api/strapi";
+import Footer from "../components/Footer";
 
 export default function NewsPage() {
   const [items, setItems] = useState([]);
@@ -56,7 +57,7 @@ export default function NewsPage() {
   };
 
   return (
-    <main className='gc-news-page'>
+    <><main className='gc-news-page'>
       <div className='gc-news-page-inner'>
         <h1 className='gc-news-page-title'>
           TIN TỨC
@@ -99,14 +100,13 @@ export default function NewsPage() {
                       <img
                         src={item.imageUrl}
                         alt={item.title}
-                        className='gc-news-card-image'
-                      />
+                        className='gc-news-card-image' />
                     </div>
 
                     <div className='gc-news-card-body'>
                       <p className='gc-news-card-date'>
                         {formatDate(
-                          item.publishedAt,
+                          item.publishedAt
                         )}
                       </p>
 
@@ -118,9 +118,9 @@ export default function NewsPage() {
                         {item.seoDescription ||
                           (item.content
                             ? item.content.slice(
-                                0,
-                                120,
-                              ) + "..."
+                              0,
+                              120
+                            ) + "..."
                             : "")}
                       </p>
                     </div>
@@ -130,6 +130,6 @@ export default function NewsPage() {
             </section>
           )}
       </div>
-    </main>
+    </main><Footer /></>
   );
 }

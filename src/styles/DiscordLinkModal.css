@@ -1,3 +1,4 @@
+
 .discord-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -9,44 +10,31 @@
   backdrop-filter: blur(10px);
 }
 
-/* Khung modal xanh đậm bo tròn */
+
 .discord-modal {
   position: relative;
-  width: min(520px, 92vw);
-  padding: 28px 28px 24px;
+  width: min(660px, 92vw); 
+  padding: 40px;
   border-radius: 24px;
-  border: 1px solid rgba(0, 255, 120, 0.6);
-  background: radial-gradient(
-      circle at top,
-      rgba(0, 255, 160, 0.12),
-      transparent 55%
-    ),
-    #050716; /* nền kiểu hình bạn gửi */
+  border: 1px solid #24D56D;
+  background: linear-gradient(180deg, #000000 0%, #126735 100%);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
   color: #f5f7ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .discord-modal-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .discord-header-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 255, 140, 0.4);
-  background: radial-gradient(
-      circle at top,
-      rgba(0, 255, 150, 0.25),
-      transparent 70%
-    ),
-    #02160f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
+  display: none; 
 }
 
 .discord-header-title {
@@ -56,87 +44,101 @@
   color: #2dff78;
 }
 
-/* Nút X góc trên bên phải */
 .discord-modal-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(0, 0, 0, 0.4);
-  color: #e0e4ff;
-  font-size: 14px;
-  line-height: 1;
-  display: inline-flex;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.15s ease,
-    transform 0.1s ease;
+  transition: all 0.2s ease;
 }
 
 .discord-modal-close:hover {
-  background: rgba(0, 0, 0, 0.7);
-  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Tiêu đề */
+
 .discord-modal-title {
-  margin: 6px 0 26px;
-  font-size: 32px;
+  margin: 0;
+  font-size: 40px;
   font-weight: 700;
   text-align: center;
-  color: #35ff8b;
+  color: #24D56D;
 }
 
-/* Nút chính “Liên kết với Discord” */
+.discord-success-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 5px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.discord-current-box {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.discord-current-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.discord-current-name {
+  color: #24D56D;
+  font-weight: 600;
+}
+
 .discord-connect-btn {
   width: 100%;
   border: none;
-  border-radius: 999px;
-  padding: 16px 22px;
-  background: #5865f2; /* màu Discord */
+  border-radius: 12px;
+  padding: 18px;
+  background: #5865f2; 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
   cursor: pointer;
-  box-shadow: 0 14px 32px rgba(88, 101, 242, 0.45);
-  transition: transform 0.08s ease,
-    box-shadow 0.08s ease,
-    filter 0.08s ease;
+  transition: all 0.2s ease;
 }
 
 .discord-connect-btn:hover {
+  filter: brightness(1.1);
   transform: translateY(-1px);
-  filter: brightness(1.04);
-  box-shadow: 0 18px 40px rgba(88, 101, 242, 0.6);
 }
 
 .discord-connect-btn:active {
   transform: translateY(0);
-  box-shadow: 0 8px 20px rgba(88, 101, 242, 0.5);
 }
 
-/* Icon Discord */
 .discord-connect-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.16);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .discord-connect-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   fill: #ffffff;
 }
 
@@ -144,10 +146,9 @@
   white-space: nowrap;
 }
 
-/* Text nhỏ bên dưới */
 .discord-modal-subtext {
   margin-top: 16px;
   text-align: center;
-  font-size: 13px;
-  color: rgba(230, 236, 255, 0.82);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5)
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "../styles/AccountPage.css";
 import { getAccount } from "../api/strapi";
 import DiscordLinkModal from "../components/DiscordLinkModal";
-
+import ChangePassword from "../components/ChangePassword";
 export default function AccountPage() {
   const [user, setUser] = useState(null);
   const [loginHistory, setLoginHistory] = useState([]);
@@ -11,6 +11,7 @@ export default function AccountPage() {
   const [error, setError] = useState("");
 
   const [showDiscordModal, setShowDiscordModal] = useState(false);
+  const [showChangePassword, setShowChangePassword] = useState(false);
 
   const handleDiscordConnect = () => {
     const token = localStorage.getItem("gc_token"); 
@@ -179,7 +180,10 @@ export default function AccountPage() {
           <div className="profile-card-header">Hành động</div>
 
           <div className="profile-actions-grid">
-            <button className="gc-btn gc-btn-outline">
+            <button
+              className="gc-btn gc-btn-outline"
+              onClick={() => setShowChangePassword(true)}
+              >
               <span className="gc-btn-icon">🔒</span>
               <span>Đổi mật khẩu</span>
             </button>
@@ -187,12 +191,13 @@ export default function AccountPage() {
             <button
               className="gc-btn gc-btn-outline"
               onClick={() => setShowDiscordModal(true)}
-            >
+             >
               <span className="gc-btn-icon">🕹️</span>
               <span>Liên kết Discord</span>
             </button>
           </div>
         </section>
+
 
         {/* ==== LỊCH SỬ ĐĂNG NHẬP ==== */}
         <section className="profile-card profile-card--logins">
@@ -250,6 +255,10 @@ export default function AccountPage() {
         onConnect={handleDiscordConnect}
         discordUser={user?.discord}
       />
+      <ChangePassword
+        open={showChangePassword}
+        onClose={() => setShowChangePassword(false)}
+      />  
     </main>
   );
 }

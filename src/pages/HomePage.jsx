@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../styles/HomePage.css";
 import Hero from "../components/Hero";
 import { getDashboard } from "../api/strapi";
 import Footer from "../components/Footer";
@@ -6,8 +7,6 @@ import GuideSection from "../components/GuideSection";
 import NewsSection from "../components/NewsSection";
 import BusinessSection from "../components/BusinessSection";
 import MediaAboutSection from "../components/MediaAboutSection";
-
-import "../styles/HomePage.css";
 
 export default function Home() {
   const [dashboard, setDashboard] = useState({
@@ -28,7 +27,6 @@ export default function Home() {
 
   return (
     <div className='home-page'>
-      {/* ==== HERO SECTION WITH FIGMA GRADIENT + MULTIPLY ==== */}
       <section className='home-bg-1'>
         <div className='hero-inner'>
           <Hero
@@ -38,13 +36,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==== BACKGROUND 2: GUIDE + NEWS ==== */}
       <section className='home-bg-2'>
         <GuideSection />
         <NewsSection />
       </section>
 
-      {/* ==== BACKGROUND 3: BUSINESS + MEDIA + ABOUT + FOOTER ==== */}
       <section className='home-bg-3'>
         <BusinessSection />
         <MediaAboutSection />

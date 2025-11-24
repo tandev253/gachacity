@@ -10,7 +10,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import "../styles/Navbar.css";
+import "../styles/navbar.css";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 import RegisterConfirmModal from "./RegisterConfirmModal";

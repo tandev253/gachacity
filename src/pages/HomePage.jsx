@@ -7,7 +7,7 @@ import NewsSection from "../components/NewsSection";
 import BusinessSection from "../components/BusinessSection";
 import MediaAboutSection from "../components/MediaAboutSection";
 
-import "../styles/homepage.css";
+import "../styles/HomePage.css";
 
 export default function Home() {
   const [dashboard, setDashboard] = useState({

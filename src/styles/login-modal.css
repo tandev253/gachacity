@@ -1,0 +1,246 @@
+
+.gc-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.gc-login-modal {
+  position: relative;
+
+  width: 660px;
+  max-width: calc(100% - 64px);
+  min-height: 700px;
+
+  padding: 56px 64px 40px;
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(0, 255, 136, 0.18),
+      rgba(0, 0, 0, 0) 60%
+    ),
+    rgba(6, 25, 14, 0.55);
+  backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(0, 255, 136, 0.45);
+
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 30px 70px rgba(0, 0, 0, 0.85);
+
+  color: #fff;
+}
+
+
+.gc-login-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.gc-login-close:hover {
+  color: #ffffff;
+}
+
+
+.gc-login-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #20ff76;
+  margin: 6px 0 40px;
+}
+
+
+.gc-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gc-field-label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+.gc-input-wrapper {
+  position: relative;
+}
+
+.gc-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 136, 0.6);
+  background: rgba(2, 12, 7, 0.9);
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7);
+}
+
+.gc-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.gc-input:focus {
+  border-color: #21ff7a;
+  box-shadow:
+    0 0 0 1px rgba(33, 255, 122, 0.6),
+    0 0 0 4px rgba(33, 255, 122, 0.2);
+  background: rgba(4, 18, 10, 0.98);
+}
+
+
+.gc-input-password .gc-input {
+  padding-right: 46px;
+}
+
+.gc-input-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.gc-input-eye:hover {
+  color: #ffffff;
+}
+
+
+.gc-login-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.gc-remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.gc-remember input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #21ff7a;
+}
+
+.gc-forgot-btn {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+}
+
+.gc-forgot-btn:hover {
+  text-decoration: underline;
+}
+
+
+.gc-login-submit {
+  margin-top: 28px;
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+
+  background: linear-gradient(
+    180deg,
+    #35ff9a 0%,
+    #0cc45c 100%
+  );
+
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0px 4px 16px rgba(0, 255, 136, 0.25);
+  transition: transform 0.15s ease, filter 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.gc-login-submit:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+  box-shadow: 0px 6px 20px rgba(0, 255, 136, 0.32);
+}
+
+.gc-login-submit:active {
+  transform: translateY(0);
+  box-shadow: 0px 3px 12px rgba(0, 255, 136, 0.2);
+}
+
+
+.gc-login-bottom {
+  margin-top: 26px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.gc-register-link {
+  margin-left: 4px;
+  border: none;
+  background: transparent;
+  color: #20ff76;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gc-error-box {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(255, 0, 0, 0.12);
+  border: 1px solid rgba(255, 80, 80, 0.4);
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .gc-login-modal {
+    padding: 32px 20px 26px;
+    border-radius: 18px;
+    min-height: auto;
+  }
+
+  .gc-login-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+}

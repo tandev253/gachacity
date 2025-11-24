@@ -1,0 +1,199 @@
+.gc-hero {
+  min-height: 1080px;
+  display: flex;
+  align-items: center;
+}
+
+.gc-hero-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+
+  padding: 0px 80px 140px;
+  box-sizing: border-box;
+}
+
+.gc-hero-left {
+  flex: 0 0 42%;
+}
+
+.gc-hero-right {
+  flex: 0 0 58%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gc-hero-kicker {
+  font-family: "Alexandria", sans-serif;
+  font-size: 48px;
+
+  font-weight: 400;
+
+  color: #FFFFFF;
+
+  line-height: normal;
+
+  margin: 0 0 12px;
+
+}
+
+.gc-hero-title {
+  font-family: "Alexandria", sans-serif;
+  font-weight: 600;
+  font-size: 96px;
+  line-height: 115px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 40px;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #24D56D 0%, #00A946 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 15px rgba(36, 213, 109, 0.5));
+}
+
+.gc-hero-title::before {
+  content: "GACHA CITY";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: transparent;
+}
+
+.gc-hero-title span {
+  color: #00ff55;
+  text-shadow: 0 0 18px rgba(0, 255, 85, 0.9);
+}
+
+.gc-hero-stats-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.gc-hero-stat {
+  width: 150px;
+  height: 100px;
+  min-width: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 0.5px solid #24D56D;
+  border-radius: 0px 24px 0px 24px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.6);
+}
+
+.gc-hero-stat-label {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.gc-hero-stat-value {
+  display: block;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.gc-hero-actions {
+  margin-top: 10px;
+}
+
+.gc-hero-btn {
+  width: 260px;
+  height: 60px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px 24px 0px 24px;
+  background: linear-gradient(90deg, #24D56D 0%, #00A946 100%);
+  color: #ffffff;
+  font-family: "Alexandria", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.7);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.gc-hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.8);
+  filter: brightness(1.05);
+}
+
+.gc-hero-art-wrapper {
+  position: relative;
+}
+
+.gc-hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%,
+      rgba(0, 255, 85, 0.7),
+      transparent 60%);
+  opacity: 0.9;
+  filter: blur(26px);
+  pointer-events: none;
+}
+
+.gc-hero-art {
+  position: relative;
+  display: block;
+  max-width: 720px;
+  height: 860px;
+  width: 752px;
+  margin-top: 170px;
+  right: 0.8px;
+}
+
+@media (max-width: 1280px) {
+  .gc-hero-inner {
+    padding: 100px 40px 120px;
+  }
+
+  .gc-hero-title {
+    font-size: 64px;
+  }
+
+  .gc-hero-art {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 900px) {
+  .gc-hero {
+    min-height: auto;
+  }
+
+  .gc-hero-inner {
+    flex-direction: column;
+    padding: 80px 20px 80px;
+    text-align: center;
+  }
+
+  .gc-hero-left,
+  .gc-hero-right {
+    flex: 1 1 100%;
+  }
+
+  .gc-hero-stats-row {
+    justify-content: center;
+  }
+}

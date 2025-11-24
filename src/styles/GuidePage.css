@@ -1,0 +1,185 @@
+.guide-page-container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../assets/guide-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+
+}
+
+.guide-title {
+    font-family: "Alexandria", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 115px;
+    letter-spacing: 0.05em;
+    margin-top: 30px;
+    text-transform: uppercase;
+    text-align: center;
+
+    background: linear-gradient(180deg, #24d56d 0%, #1eaa58 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #24d56d;
+    margin-bottom: 40px;
+}
+
+.guide-filters {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.guide-btn {
+    height: 60px;
+    min-width: 150px;
+    padding: 0 24px;
+
+    font-family: "Alexandria", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.guide-btn:hover {
+    border-color: #24d56d;
+    color: #24d56d;
+}
+
+.guide-btn.active {
+    background: linear-gradient(90deg, #24d56d 0%, #1eaa58 100%);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(36, 213, 109, 0.3);
+}
+
+.guide-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 60px;
+    width: 100%;
+    max-width: 1166px;
+    padding-bottom: 100px;
+}
+
+.guide-item {
+    width: 100%;
+    min-height: 80px;
+
+    background: transparent;
+    border: 1px solid #24d56d;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.guide-item:hover {
+    background: rgba(36, 213, 109, 0.1);
+    box-shadow: 0 0 20px rgba(36, 213, 109, 0.2);
+}
+
+.guide-item.expanded {
+    background: rgba(10, 38, 22, 0.8);
+
+    border: 2px solid rgba(36, 213, 109, 0.6);
+
+    border-radius: 10px;
+
+}
+
+.guide-header {
+    background: rgba(42, 99, 66, 0.8);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.guide-item-text {
+    font-family: "Alexandria", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.guide-item-icon {
+    position: absolute;
+    right: 30px;
+    transition: transform 0.3s ease;
+}
+
+.guide-item.expanded .guide-item-icon {
+    transform: rotate(90deg);
+}
+
+.guide-content {
+    background: rgba(10, 38, 22, 0.8);
+    padding: 0 40px 40px 40px;
+    color: #ffffff;
+    text-align: left;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.guide-section {
+    margin-bottom: 24px;
+}
+
+.guide-section-title {
+    font-family: "Alexandria", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #24d56d;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.guide-section-text {
+    font-family: "Alexandria", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin: 0;
+}

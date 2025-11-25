@@ -1,6 +1,7 @@
 // src/components/RegisterModal.jsx
 import { useState } from "react";
 import "../styles/register-modal.css";
+import eyeIcon from "../assets/eye-Icon.png";
 
 export default function RegisterModal({
   isOpen,
@@ -12,6 +13,8 @@ export default function RegisterModal({
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
+  const [showPass, setShowPass] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   if (!isOpen) return null;
 
@@ -89,38 +92,38 @@ export default function RegisterModal({
           </label>
 
           <label className='gc-register-field'>
-            <span className='gc-register-label'>
-              Mật khẩu
-            </span>
+            <span className='gc-register-label'>Mật khẩu</span>
             <div className='gc-register-input-wrap'>
               <input
-                type='password'
+                type={showPass ? "text" : "password"} // Sửa type
                 className='gc-register-input'
                 placeholder='Nhập mật khẩu'
                 value={password}
-                onChange={(e) =>
-                  setPassword(e.target.value)
-                }
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              {/* Thêm nút icon */}
+              <button type="button" className="gc-register-eye" onClick={() => setShowPass(!showPass)}>
+                <img src={eyeIcon} alt="Toggle" />
+              </button>
             </div>
           </label>
 
           <label className='gc-register-field'>
-            <span className='gc-register-label'>
-              Xác nhận mật khẩu
-            </span>
+            <span className='gc-register-label'>Xác nhận mật khẩu</span>
             <div className='gc-register-input-wrap'>
               <input
-                type='password'
+                type={showConfirm ? "text" : "password"} // Sửa type
                 className='gc-register-input'
                 placeholder='Nhập lại mật khẩu'
                 value={confirm}
-                onChange={(e) =>
-                  setConfirm(e.target.value)
-                }
+                onChange={(e) => setConfirm(e.target.value)}
                 required
               />
+              {/* Thêm nút icon */}
+              <button type="button" className="gc-register-eye" onClick={() => setShowConfirm(!showConfirm)}>
+                <img src={eyeIcon} alt="Toggle" />
+              </button>
             </div>
           </label>
 

@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import "../styles/login-modal.css";
 import { useAuth } from "../contexts/AuthContext";
+import eyeIcon from "../assets/eye-Icon.png";
+
 
 export default function LoginModal({
   isOpen,
@@ -56,7 +58,7 @@ export default function LoginModal({
     } catch (err) {
       setError(
         err.message ||
-          "Tên đăng nhập hoặc mật khẩu không đúng",
+        "Tên đăng nhập hoặc mật khẩu không đúng",
       );
     } finally {
       setLoading(false);
@@ -146,11 +148,9 @@ export default function LoginModal({
               <button
                 type='button'
                 className='gc-input-eye'
-                onClick={() =>
-                  setShowPassword((v) => !v)
-                }
+                onClick={() => setShowPassword((v) => !v)}
               >
-                {showPassword ? "🙈" : "👁️"}
+                <img src={eyeIcon} alt="Toggle" />
               </button>
             </div>
           </label>

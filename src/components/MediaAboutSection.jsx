@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../styles/media-about-section.css";
 import { getMediaVideo } from "../api/strapi";
 
-// Lấy ID YouTube từ nhiều dạng link khác nhau
 function getYoutubeId(url) {
   if (!url) return null;
 
@@ -30,7 +29,7 @@ export default function MediaAboutSection() {
   useEffect(() => {
     async function loadVideo() {
       try {
-        const data = await getMediaVideo(); // { videoUrl }
+        const data = await getMediaVideo();
         if (!data?.videoUrl) return;
 
         const id = getYoutubeId(data.videoUrl);
@@ -60,7 +59,6 @@ export default function MediaAboutSection() {
   return (
     <section className='gc-media-about'>
       <div className='gc-media-about-inner'>
-        {/* LEFT: MEDIA */}
         <div className='gc-media-block'>
           <div className='gc-media-heading'>
             <h2 className='gc-media-title'>

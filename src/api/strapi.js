@@ -158,12 +158,6 @@ export async function getMediaVideo() {
       json?.data?.videoUrl ??
       "";
 
-    console.log("getMediaVideo json:", json);
-    console.log(
-      "getMediaVideo videoUrl:",
-      videoUrl,
-    );
-
     return { videoUrl };
   } catch (err) {
     console.error("Media section error:", err);

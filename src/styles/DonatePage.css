@@ -62,9 +62,9 @@
 }
 
 .gc-donate-card-header h2 {
-  font-size: 20px;
+  font-size: 36px;
   font-weight: 600;
-  color: #e6f6ff;
+  color: #24D56D;
 }
 
 .gc-donate-packages-grid {
@@ -130,23 +130,28 @@
     0 22px 46px rgba(0, 0, 0, 1);
 }
 
-/* INPUT TUỲ CHỈNH */
+
 .gc-donate-custom-wrapper {
   margin-top: 28px;
 }
 
 .gc-donate-custom-label {
-  font-size: 13px;
-  color: #b3becd;
+  font-size: 20px;
+  color: #24D56D;
   display: block;
   margin-bottom: 8px;
 }
 
 .gc-donate-custom-input-wrap {
+  width: 804px;
+  height: 70px;
   border-radius: 14px;
   background: rgba(16, 69, 41, 0.85);
   border: 1px solid rgba(0, 255, 120, 0.18);
   padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .gc-donate-custom-input {
@@ -154,12 +159,13 @@
   border: none;
   outline: none;
   background: transparent;
-  font-size: 14px;
+  font-size: 20px;
   color: #e5f1ff;
 }
 
 .gc-donate-custom-input::placeholder {
-  color: #6c7584;
+  color: #7e7e7e;
+  font-size: 20px;
 }
 
 .gc-donate-right {
@@ -216,12 +222,12 @@
 }
 
 .gc-donate-bank-main {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 600;
 }
 
 .gc-donate-bank-sub {
-  font-size: 16px;
+  font-size: 24px;
   color: #8ba2a4;
 }
 
@@ -257,11 +263,13 @@
 
 .gc-donate-summary-row .label {
   color: #a3b0be;
+  font-size: 18px;
 }
 
 .gc-donate-summary-row .value {
   color: #e4f0ff;
   font-weight: 500;
+  font-size: 18px;
 }
 
 .gc-donate-summary-row .value.highlight {
@@ -270,7 +278,7 @@
 }
 
 .gc-donate-qr-button {
-  width: 530px;
+  width: 515px;
   height: 70px;
   border: none;
   outline: none;
@@ -278,14 +286,13 @@
   margin-top: 4px;
 
   border-radius: 0 16px 0 16px;
-  padding: 13px 20px;
-
+  padding: 13px 20px;;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
 
-  color: #02140d;
+  color: #FFFFFF;
   background: linear-gradient(
     90deg,
     #45f18c 0%,
@@ -311,11 +318,11 @@
 }
 
 .gc-donate-note {
-  background: #161616;
+  background: #393939;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
-  padding: 18px 18px 16px;
-  margin-top: 18px;
+  padding-bottom: 30px;
+  margin: 2px 18px 18px 18px ;
 }
 
 .gc-donate-note-header {
@@ -323,6 +330,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .gc-donate-note-icon {
@@ -343,8 +351,8 @@
 }
 
 .gc-donate-note-title {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
   color: #ffd15c;
 }
 
@@ -352,13 +360,14 @@
   padding-left: 18px;
   margin: 0;
   list-style: disc;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 1.65;
   color: #d1d5db;
 }
 
 .gc-donate-note-list li {
   margin-bottom: 6px;
+  font-size: 18px;
 }
 
 .gc-donate-note-list li::marker {

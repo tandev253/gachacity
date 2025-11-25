@@ -4,6 +4,11 @@ import "../styles/Footer.css";
 export default function Footer() {
   return (
     <footer className='gc-footer'>
+      <div className='gc-footer-center'>
+        <div className='gc-footer-center-inner'>
+          Powered by <span className='gc-footer-center-inner-text'>Gacha City</span>
+        </div>
+      </div>
       <div className='gc-footer-inner'>
         {/* Facebook */}
         <a

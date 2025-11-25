@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import Footer from "../components/Footer";
 import "../styles/DonatePage.css";
 
 const PACKAGES = [
@@ -25,7 +26,6 @@ export default function DonatePage() {
   }, [selectedId, customAmount]);
 
   const receivedCoins = useMemo(() => {
-    // Tạm thời tỉ lệ 1.000đ = 1 coin
     return selectedAmount > 0 ? selectedAmount / 1000 : 0;
   }, [selectedAmount]);
 
@@ -46,20 +46,21 @@ export default function DonatePage() {
   }
 
   return (
+    <>
     <main className="gc-donate-page">
       
       <div className="gc-donate-inner">
         <header className="gc-donate-heading">
           <h1>DONATE</h1>
           <p>
-            Nạp tiền để nhận coin và các đặc quyền trong game
+            Donate để nhận coin và các đặc quyền trong game
           </p>
         </header>
 
         <section className="gc-donate-layout">
           <div className="gc-donate-card gc-donate-packages">
             <div className="gc-donate-card-header">
-              <h2>Gói nạp</h2>
+              <h2>Mệnh giá</h2>
             </div>
 
             <div className="gc-donate-packages-grid">
@@ -145,7 +146,7 @@ export default function DonatePage() {
                 <div className="gc-donate-summary-row">
                   <span className="label">Nội dung CK</span>
                   <span className="value">
-                    GACHACITY NAPTIEN
+                    GACHACITY + ID
                   </span>
                 </div>
               </div>
@@ -173,7 +174,7 @@ export default function DonatePage() {
                   </span>
                 </li>
                 <li>
-                  <span className="gc-donate-note-highlight">Nội dung chuyển khoản: GACHACITY NAPTIEN</span>
+                  <span className="gc-donate-note-highlight">Nội dung chuyển khoản: GACHACITY + ID</span>
                 </li>
                 <li>
                   Số coin được cộng tự động sau khi thanh toán
@@ -197,5 +198,7 @@ export default function DonatePage() {
         </section>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }

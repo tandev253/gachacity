@@ -4,6 +4,11 @@ import "../styles/AccountPage.css";
 import { getAccount } from "../api/strapi";
 import DiscordLinkModal from "../components/DiscordLinkModal";
 import ChangePassword from "../components/ChangePassword";
+import Footer from "../components/Footer";
+import donateIcon from "../assets/donate.png";
+import passwordIcon from "../assets/doi-pass.png";
+import discordIcon from "../assets/discord-icon.png";
+
 export default function AccountPage() {
   const [user, setUser] = useState(null);
   const [loginHistory, setLoginHistory] = useState([]);
@@ -14,13 +19,13 @@ export default function AccountPage() {
   const [showChangePassword, setShowChangePassword] = useState(false);
 
   const handleDiscordConnect = () => {
-    const token = localStorage.getItem("gc_token"); 
+    const token = localStorage.getItem("gc_token");
     if (!token) {
       alert("Bạn cần đăng nhập trước.");
       return;
     }
 
-      window.location.href =
+    window.location.href =
       `${import.meta.env.VITE_AUTH_BACKEND_URL}/api/discord/login?token=${encodeURIComponent(
         token,
       )}`;
@@ -34,6 +39,7 @@ export default function AccountPage() {
     if (discordStatus === "success") {
       setShowDiscordModal(true);
       params.delete("discord");
+      
       const newQuery = params.toString();
       const newUrl =
         window.location.pathname +
@@ -108,6 +114,7 @@ export default function AccountPage() {
   }
 
   return (
+     <>
     <main className="profile-page">
       <div className="profile-container">
         <h1 className="profile-title">TÀI KHOẢN</h1>
@@ -169,7 +176,7 @@ export default function AccountPage() {
             </div>
 
             <button className="gc-btn gc-btn-gradient profile-donate-btn">
-              <span className="gc-btn-icon">💎</span>
+              <img src={donateIcon} alt="" className="gc-btn-icon" />
               <span>Donate ngay</span>
             </button>
           </section>
@@ -183,16 +190,16 @@ export default function AccountPage() {
             <button
               className="gc-btn gc-btn-outline"
               onClick={() => setShowChangePassword(true)}
-              >
-              <span className="gc-btn-icon">🔒</span>
+            >
+              <img src={passwordIcon} alt="" className="gc-btn-icon" />
               <span>Đổi mật khẩu</span>
             </button>
 
             <button
               className="gc-btn gc-btn-outline"
               onClick={() => setShowDiscordModal(true)}
-             >
-              <span className="gc-btn-icon">🕹️</span>
+            >
+              <img src={discordIcon} alt="" className="gc-btn-icon" />
               <span>Liên kết Discord</span>
             </button>
           </div>
@@ -258,7 +265,9 @@ export default function AccountPage() {
       <ChangePassword
         open={showChangePassword}
         onClose={() => setShowChangePassword(false)}
-      />  
+      />
     </main>
+    <Footer />
+   </>
   );
 }

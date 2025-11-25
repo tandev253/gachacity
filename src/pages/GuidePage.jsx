@@ -1,16 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import "../styles/GuidePage.css";
 import { getGuides, getGuidePageConfig } from "../api/strapi";
-
+import Footer from "../components/Footer";
 export default function GuidePage() {
-  const [activeTab, setActiveTab] = useState("");         // label tab hiện tại
-  const [expandedId, setExpandedId] = useState(null);     // id guide đang mở
-  const [guides, setGuides] = useState([]);               // danh sách guide từ Strapi
-  const [pageConfig, setPageConfig] = useState({});       // config header + label "Tất cả"
+  const [activeTab, setActiveTab] = useState("");        
+  const [expandedId, setExpandedId] = useState(null);     
+  const [guides, setGuides] = useState([]);               
+  const [pageConfig, setPageConfig] = useState({});       
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Load data từ Strapi
   useEffect(() => {
     let isMounted = true;
 
@@ -28,7 +27,6 @@ export default function GuidePage() {
         setPageConfig(config || {});
         setGuides(guidesData || []);
 
-        // set tab mặc định là "Tất cả" hoặc label từ config
         const allLabel = config?.allTabLabel || "Tất cả";
         setActiveTab(allLabel);
       } catch (err) {
@@ -50,20 +48,16 @@ export default function GuidePage() {
     };
   }, []);
 
-  // Tạo danh sách tabs từ category của guides
   const tabs = useMemo(() => {
     const allLabel = pageConfig?.allTabLabel || "Tất cả";
     const categories = Array.from(
       new Set(guides.map((g) => g.category).filter(Boolean))
     );
 
-    // Có thể sort nếu muốn
     categories.sort((a, b) => a.localeCompare(b, "vi"));
 
     return [allLabel, ...categories];
   }, [guides, pageConfig]);
-
-  // Lọc guides theo tab hiện tại
   const filteredGuides = useMemo(() => {
     const allLabel = pageConfig?.allTabLabel || "Tất cả";
     if (!activeTab || activeTab === allLabel) return guides;
@@ -97,13 +91,11 @@ export default function GuidePage() {
   }
 
   return (
+    <>
     <div className="guide-page-container">
-      {/* HEADER lấy từ Strapi */}
       <h1 className="guide-title">
         {pageConfig?.title || "HƯỚNG DẪN"}
       </h1>
-
-      {/* TABS lấy từ category + allTabLabel */}
       <div className="guide-filters">
         {tabs.map((tab) => (
           <button
@@ -111,7 +103,7 @@ export default function GuidePage() {
             className={`guide-btn ${activeTab === tab ? "active" : ""}`}
             onClick={() => {
               setActiveTab(tab);
-              setExpandedId(null); // reset item mở khi đổi tab
+              setExpandedId(null);
             }}
           >
             {tab}
@@ -119,7 +111,6 @@ export default function GuidePage() {
         ))}
       </div>
 
-      {/* LIST GUIDES */}
       <div className="guide-list">
         {filteredGuides.length === 0 && (
           <p className="guide-empty">Chưa có hướng dẫn nào trong mục này.</p>
@@ -168,7 +159,6 @@ export default function GuidePage() {
                         {section.content && (
                           <p
                             className="guide-section-text"
-                            // Nếu dùng Rich Text của Strapi (HTML)
                             dangerouslySetInnerHTML={{
                               __html: section.content,
                             }}
@@ -189,6 +179,9 @@ export default function GuidePage() {
           );
         })}
       </div>
+
     </div>
+    <Footer />
+      </>
   );
 }
